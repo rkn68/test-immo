@@ -1,0 +1,730 @@
+/* Réinitialisation CSS */
+* {
+  margin: 0; /* Réinitialisation de la marge */
+  padding: 0; /* Réinitialisation du padding */
+  box-sizing: border-box; /* Assurer la consistance de box-sizing */
+}
+
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif; /* Définition de la famille de police par défaut */
+  height: 100vh; /* Hauteur du corps pour remplir la vue */
+  margin: 0; /* Réinitialisation de la marge */
+}
+
+.grille-accueil {
+  width: 100%; /* Largeur du conteneur de la grille */
+  height: 100%; /* Hauteur du conteneur de la grille */
+  display: grid; /* Utilisation de la grille CSS pour la mise en page */
+  grid-template: 70px 500px minmax(300px, 1fr) / 600px 1fr 600px; /* Définition du modèle de grille */
+}
+
+/* -------------- Menu ------------- */
+.menu {
+  grid-area: 1 / 1 / 2 / -1; /* Positionnement du menu dans la grille */
+  width: 100%; /* Largeur du menu */
+  height: 70px; /* Hauteur du menu */
+}
+
+.titre-menu {
+  font-family: 'Playfair Display', 'Times New Roman', Times, serif; /* Police du titre du menu */
+  background: #709fab; /* Couleur de fond du titre du menu */
+  display: flex; /* Transformation du titre en conteneur flex */
+  justify-content: center; /* Centrage horizontal du titre */
+  align-items: center; /* Centrage vertical du titre */
+  font-size: 35px; /* Taille de police du titre du menu */
+  height: 70px; /* Hauteur du titre du menu */
+  position: relative; /* Positionnement du contexte pour le pseudo-élément */
+  z-index: 200; /* Ordre d'empilement */
+  border-bottom: 1px solid #000; /* Bordure inférieure */
+}
+
+.menu:hover > .titre-menu {
+  border-bottom: 0px solid #000; /* Suppression de la bordure inférieure au survol du menu */
+}
+
+.titre-menu::after {
+  content: ""; /* Ajout d'un contenu généré */
+  display: block; /* Transformation en bloc */
+  position: absolute; /* Positionnement absolu par rapport au titre */
+  width: 35px; /* Largeur de la ligne */
+  height: 1px; /* Hauteur de la ligne */
+  background: #000; /* Couleur de la ligne */
+  top: 61px; /* Positionnement vertical */
+}
+
+.liste-menu {
+  background: #709fab; /* Couleur de fond de la liste du menu */
+  position: relative; /* Positionnement relatif pour le positionnement absolu des éléments enfants */
+  z-index: 100; /* Ordre d'empilement */
+  top: -200px; /* Décalage vers le haut pour cacher la liste */
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  flex-direction: column; /* Orientation verticale des éléments */
+  list-style-type: none; /* Suppression des puces */
+  border-bottom: 1px solid #000; /* Bordure inférieure */
+}
+
+.titre-menu:hover + .liste-menu {
+  transition: top 0.2s ease-in-out; /* Transition fluide */
+  top: 0px; /* Révélation de la liste du menu au survol */
+}
+
+.liste-menu:hover {
+  top: 0px; /* Affichage permanent de la liste au survol */
+}
+
+.liste-menu li {
+  margin: 10px 0px; /* Marge des éléments de la liste */
+}
+
+.liste-menu a {
+  text-decoration: none; /* Suppression du soulignement des liens */
+  font-size: 22px; /* Taille de police des liens */
+  color: #000; /* Couleur du texte */
+  position: relative; /* Positionnement relatif pour le positionnement absolu des éléments enfants */
+}
+
+.liste-menu a::after {
+  content: ""; /* Ajout d'un contenu généré */
+  display: block; /* Transformation en bloc */
+  position: absolute; /* Positionnement absolu par rapport au lien */
+  bottom: -1px; /* Positionnement vertical */
+  width: 100%; /* Largeur de la ligne */
+  height: 1px; /* Hauteur de la ligne */
+  background: #000; /* Couleur de la ligne */
+  transform: scale(0); /* Mise à l'échelle pour masquer la ligne */
+  transition: transform 0.2s ease-in-out; /* Transition fluide */
+}
+
+.liste-menu a:hover::after {
+  transform: scale(1); /* Affichage de la ligne au survol */
+}
+
+/* -------------- Présentation ------------- */
+.presentation {
+  grid-area: 2 / 1 / 3 / 2; /* Positionnement de la présentation dans la grille */
+  background: #8299ac; /* Couleur de fond de la présentation */
+  padding: 40px; /* Espacement intérieur */
+}
+
+.presentation img {
+  width: 80px; /* Largeur de l'image de présentation */
+}
+
+.presentation h1 {
+  font-size: 80px; /* Taille de police du titre de présentation */
+  font-family: 'Playfair Display', 'Times New Roman', Times, serif; /* Police du titre de présentation */
+  font-weight: 700; /* Graisse du texte */
+}
+
+.presentation p {
+  font-size: 20px; /* Taille de police des paragraphes */
+  margin-top: 20px; /* Marge supérieure des paragraphes */
+  line-height: 1.3; /* Hauteur de ligne des paragraphes */
+}
+
+.presentation a {
+  padding: 15px; /* Espacement intérieur des liens */
+  text-decoration: none; /* Suppression du soulignement des liens */
+  color: #000; /* Couleur du texte des liens */
+  border: 1px solid #333; /* Bordure des liens */
+  border-radius: 5px; /* Bordure arrondie */
+  font-size: 20px; /* Taille de police des liens */
+  margin-top: 20px; /* Marge supérieure des liens */
+  cursor: pointer; /* Curseur de la souris */
+  display: block; /* Transformation en bloc */
+  width: 170px; /* Largeur des liens */
+  text-align: center; /* Alignement du texte au centre */
+}
+
+/* -------------- Slider ------------- */
+.slider {
+  grid-area: 2 / 2 / 3 / -1; /* Positionnement du slider dans la grille */
+  position: relative; /* Positionnement relatif pour le positionnement absolu des éléments enfants */
+}
+
+.container-slides {
+  width: 100%; /* Largeur du conteneur des slides */
+  height: 100%; /* Hauteur du conteneur des slides */
+  margin: 0 auto; /* Marge extérieure automatique */
+  position: relative; /* Positionnement relatif pour le positionnement absolu des éléments enfants */
+}
+
+.container-slides img {
+  position: absolute; /* Positionnement absolu par rapport au conteneur */
+  top: 0; /* Positionnement vertical */
+  opacity: 0; /* Opacité initiale des images */
+  width: 100%; /* Largeur des images */
+  height: 500px; /* Hauteur des images */
+  object-fit: cover; /* Redimensionnement des images pour couvrir le conteneur */
+  display: block; /* Transformation en bloc */
+  transition: opacity 0.6s ease-in-out; /* Transition de l'opacité */
+}
+
+img.active {
+  opacity: 1; /* Opacité des images actives */
+}
+
+.cont-btn {
+  position: absolute; /* Positionnement absolu par rapport au conteneur */
+  top: 85%; /* Positionnement vertical */
+  width: 100%; /* Largeur du conteneur des boutons de navigation */
+  height: auto; /* Hauteur automatique */
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: center; /* Centrage horizontal */
+}
+
+.btn-nav {
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  font-size: 50px; /* Taille de police des boutons */
+  margin: 0 15px; /* Marge des boutons */
+  cursor: pointer; /* Curseur de la souris */
+  border-radius: 50%; /* Bordure arrondie */
+  width: 50px; /* Largeur des boutons */
+  height: 50px; /* Hauteur des boutons */
+  color: #333; /* Couleur du texte */
+  background: #f1f1f1; /* Couleur de fond des boutons */
+  border: 1px solid #333; /* Bordure des boutons */
+}
+
+.btn-nav img {
+  width: 20px; /* Largeur de l'icône des boutons */
+  height: 20px; /* Hauteur de l'icône des boutons */
+}
+
+/* -------------- Choix ------------- */
+.choix {
+  grid-area: 3 / 1 / 4 / 3; /* Positionnement de la section "Choix" dans la grille */
+  background: #3a4747; /* Couleur de fond */
+  color: #f1f1f1; /* Couleur du texte */
+  border: 1px solid #000000; /* Bordure */
+  border-bottom: none; /* Pas de bordure en bas */
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  flex-direction: column; /* Direction des éléments enfants en colonne */
+  position: relative; /* Positionnement relatif pour le positionnement absolu des éléments enfants */
+}
+
+.titre-choix {
+  font-size: 35px; /* Taille de police */
+  margin-bottom: 20px; /* Marge inférieure */
+  font-family: 'Playfair Display', 'Times New Roman', Times, serif; /* Police de caractères */
+  text-align: center; /* Alignement du texte */
+}
+
+.choix p {
+  font-size: 20px; /* Taille de police */
+  line-height: 1.4; /* Hauteur de ligne */
+}
+
+.go-galerie {
+  font-size: 22px; /* Taille de police */
+  display: block; /* Transformation en élément bloc */
+  margin: 20px auto 0; /* Marge extérieure */
+  width: 300px; /* Largeur */
+  padding: 20px; /* Remplissage intérieur */
+  text-decoration: none; /* Pas de soulignement */
+  border: 1px solid #fff; /* Bordure */
+  text-align: center; /* Alignement du texte */
+  border-radius: 5px; /* Bordure arrondie */
+  background: #4b4a4e; /* Couleur de fond */
+  color: #f1f1f1; /* Couleur du texte */
+}
+
+.go-galerie:hover {
+  transition: all 0.2s ease-in-out; /* Transition */
+  background: #f1f1f1; /* Couleur de fond au survol */
+  color: #222; /* Couleur du texte au survol */
+}
+
+.cont-medias {
+  display: flex; /* Utilisation de flexbox pour aligner les icônes */
+  gap: 10px; /* Espacement entre les icônes */
+}
+
+.cont-medias a {
+  display: inline-block; /* Affichage en bloc pour les liens */
+}
+
+.cont-medias img {
+  width: 40px; /* Largeur des icônes agrandie */
+  height: 40px; /* Hauteur des icônes agrandie */
+  border: 1px solid #f1f1f1; /* Bordure des icônes */
+  border-radius: 50%; /* Icônes circulaires */
+  display: flex; /* Affichage en flex */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  padding: 10px; /* Espacement intérieur */
+  background-color: #4b4a4e; /* Fond blanc */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre légère */
+  margin-top: 30px;
+}
+
+.cont-medias img:hover {
+  background-color: #eaeaea; /* Changer de couleur au survol */
+}
+
+/* -------------- Contact ------------- */
+.contact {
+  grid-area: 3 / 3 / 4 / 4; /* Positionnement de la section "Contact" dans la grille */
+  background: #815170; /* Couleur de fond */
+  color: #ffffff; /* Couleur du texte */
+  position: relative; /* Positionnement relatif pour le positionnement des éléments enfants */
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: space-between; /* Espace entre les éléments enfants */
+  align-items: center; /* Centrage vertical */
+}
+
+.contact h3 {
+  font-size: 55px; /* Taille de police */
+  padding-left: 50px; /* Remplissage à gauche */
+  font-family: 'Playfair Display', 'Times New Roman', Times, serif; /* Police de caractères */
+}
+
+.go-contact {
+  flex-shrink: 0; /* Ne pas réduire la taille */
+  margin-right: 105px; /* Marge à droite */
+  width: 90px; /* Largeur */
+  height: 90px; /* Hauteur */
+  border-radius: 50%; /* Bordure arrondie */
+  border: 1px solid #000; /* Bordure */
+  display: flex; /* Transformation en conteneur flex */
+  justify-content: center; /* Centrage horizontal */
+  align-items: center; /* Centrage vertical */
+  transition: transform 0.2s ease-in-out; /* Transition */
+}
+
+.go-contact:hover {
+  transform: scale(1.2); /* Grossissement au survol */
+}
+
+.go-contact img {
+  width: 50px; /* Largeur de l'image */
+  height: 50px; /* Hauteur de l'image */
+}
+
+/* -------------- Footer ------------- */
+footer {
+  text-align: center; /* Alignement du texte */
+  padding: 10px; /* Remplissage */
+  margin-top: auto; /* Marge supérieure automatique */
+}
+
+/* -------------- Responsive ------------- */
+@media screen and (max-width: 1200px) {
+  .grille-accueil {
+      grid-template: 1fr 500px minmax(300px, 1fr) / 400px 1fr 400px; /* Mise en page de la grille pour les écrans jusqu'à 1200px */
+  }
+
+  .contact h3 {
+      font-size: 35px; /* Réduction de la taille de la police */
+      padding-left: 35px; /* Réduction du remplissage à gauche */
+  }
+
+  .go-contact {
+      width: 60px; /* Réduction de la largeur */
+      height: 60px; /* Réduction de la hauteur */
+      margin-right: 50px; /* Réduction de la marge à droite */
+  }
+
+  .go-contact img {
+      width: 35px; /* Réduction de la largeur de l'image */
+      height: 35px; /* Réduction de la hauteur de l'image */
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .cont-medias {
+      display: none; /* Masquage des médias à partir de 1100px */
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .titre-choix {
+      font-size: 35px; /* Réduction de la taille de la police */
+  }
+
+  .go-galerie {
+      font-size: 18px; /* Réduction de la taille de la police */
+      width: 250px; /* Largeur */
+      padding: 18px; /* Remplissage */
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .presentation {
+      padding: 30px; /* Réduction du remplissage */
+  }
+
+  .presentation h1 {
+      font-size: 60px; /* Réduction de la taille de la police */
+      margin-top: 5px; /* Marge supérieure */
+  }
+
+  .grille-accueil {
+      width: 100%; /* Largeur */
+      height: 100vh; /* Hauteur */
+      display: flex; /* Transformation en conteneur flex */
+      flex-direction: column; /* Direction de la colonne */
+  }
+
+  .slider {
+      height: 500px; /* Hauteur */
+  }
+
+  .titre-choix {
+      font-size: 28px; /* Réduction de la taille de la police */
+      margin: 50px 10px 20px; /* Marge */
+  }
+
+  .go-galerie {
+      font-size: 18px; /* Réduction de la taille de la police */
+      width: 230px; /* Largeur */
+      padding: 16px; /* Remplissage */
+      margin: 20px auto 50px; /* Marge */
+  }
+
+  .presentation {
+      border-bottom: 1px solid #000; /* Bordure inférieure */
+  }
+
+  .contact {
+      display: block; /* Affichage en bloc */
+  }
+
+  .contact h3 {
+      padding-left: 0; /* Suppression du remplissage à gauche */
+      margin: 20px; /* Marge */
+      text-align: center; /* Alignement du texte au centre */
+  }
+
+  .go-contact {
+      width: 70px; /* Largeur */
+      height: 70px; /* Hauteur */
+      margin: 30px auto; /* Marge */
+  }
+
+  .go-contact img {
+      width: 35px; /* Largeur de l'image */
+      height: 35px; /* Hauteur de l'image */
+  }
+}
+
+/* -------------- PHP ------------- */
+/* Styles pour la page Portfolio */
+/* Styles pour la page Portfolio */
+.immobilier {
+  display: grid; /* Utilisation de la grille CSS */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Colonnes adaptatives */
+  gap: 20px; /* Espacement entre les éléments */
+  padding: 20px; /* Espacement intérieur */
+}
+
+.maisons-details {
+  background-color: #8299ac; /* Couleur de fond */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 10px; /* Bordure arrondie */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+  padding: 20px; /* Espacement intérieur */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition */
+}
+
+.maisons-details:hover {
+  transform: translateY(-10px); /* Déplacement vers le haut au survol */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre au survol */
+}
+
+.maisons-details img {
+  max-width: 100%; /* Largeur maximale */
+  border-radius: 10px; /* Bordure arrondie */
+  margin-bottom: 15px; /* Marge inférieure */
+}
+
+.label {
+  font-weight: bold; /* Texte en gras */
+  color: #333; /* Couleur du texte */
+}
+
+
+
+.grille-portfolio {
+  display: flex; /* Affichage en flex */
+  flex-wrap: wrap; /* Enroulement en flex */
+  justify-content: space-around; /* Justification des éléments autour de l'espace */
+  gap: 40px; /* Espacement entre les éléments */
+  padding: 20px; /* Remplissage */
+}
+
+.grid-item {
+  background-color: white; /* Couleur de fond */
+  border: 1px solid #ccc; /* Bordure */
+  border-radius: 10px; /* Rayon de la bordure */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+  width: 300px; /* Largeur */
+  padding: 20px; /* Remplissage */
+  transition: transform 0.3s, box-shadow 0.3s; /* Transition */
+}
+
+.grid-item:hover {
+  transform: translateY(-10px); /* Transformation */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre */
+}
+
+.grid-item img {
+  max-width: 100%; /* Largeur maximale */
+  border-radius: 10px; /* Rayon de la bordure */
+}
+
+.description {
+  font-weight: bold; /* Poids de la police */
+  color: #333; /* Couleur du texte */
+  margin: 10px 0; /* Marge */
+}
+
+.prix {
+  font-weight: bold; /* Poids de la police */
+  color: #e91e63; /* Couleur du texte */
+  margin: 10px 0; /* Marge */
+  display: block; /* Affichage en bloc */
+}
+
+/* Informations */
+body {
+  display: flex; /* Affichage en flex */
+  flex-direction: column; /* Direction de la colonne */
+}
+
+.container {
+  width: 700px; /* Largeur */
+  margin: 0 auto; /* Marge automatique */
+}
+
+h1 {
+  font-family: Playfair Display, 'Times New Roman', Times, serif; /* Police de caractères */
+  font-size: 50px; /* Taille de police */
+  margin: 50px 0 20px; /* Marge */
+}
+
+hr {   /*tiret*/
+  width: 200px; /* Largeur */
+  background: #000000; /* Couleur de fond */
+  margin: 15px 0; /* Marge */
+  border: none; /* Pas de bordure */
+  height: 4.5px; /* Hauteur */
+}
+
+.btn-contact {
+  display: block; /* Affichage en bloc */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de décoration de texte */
+  color: #000; /* Couleur du texte */
+  font-size: 25px; /* Taille de police */
+  border: 1px solid #000; /* Bordure */
+  width: 300px; /* Largeur */
+  padding: 10px; /* Remplissage */
+  margin: 20px auto 70px; /* Marge */
+  border-radius: 5px; /* Rayon de la bordure */
+}
+
+@media screen and (max-width: 700px) {
+  h1 {
+      margin: 30px 0; /* Marge */
+      font-size: 40px; /* Taille de police */
+  }
+  .container {
+      width: 100%; /* Largeur */
+      padding: 0 20px; /* Remplissage */
+  }
+  .btn-contact {
+      font-size: 22px; /* Taille de police */
+      width: 200px; /* Largeur */
+      padding: 5px; /* Remplissage */
+      margin: 20px auto 50px; /* Marge */
+  }
+}
+
+.footer-logo {
+  max-width: 100px; /* Largeur maximale */
+  height: auto; /* Hauteur automatique */
+}
+
+  
+  /* Contact */
+  body {
+    background: #14536299; /* Couleur de fond */
+    display: flex; /* Affichage en flex */
+    flex-direction: column; /* Direction de la colonne */
+  }
+  
+  .titre-contact {
+    margin: 50px 0 20px; /* Marge */
+    text-align: center; /* Alignement du texte */
+    font-size: 60px; /* Taille de police */
+    color: #000; /* Couleur du texte */
+  }
+  
+  .contact-sous-titre {
+    font-weight: lighter; /* Poids de la police */
+    text-align: center; /* Alignement du texte */
+    margin: 10px 0 70px; /* Marge */
+  }
+  
+  .trois-contacts {
+    width: 800px; /* Largeur */
+    margin: 0 auto; /* Marge automatique */
+    display: flex; /* Affichage en flex */
+    justify-content: space-between; /* Justification de l'espace entre les éléments */
+  }
+  
+  .box {
+    width: 200px; /* Largeur */
+    text-align: center; /* Alignement du texte */
+  }
+  
+  .box span {
+    font-size: 20px; /* Taille de police */
+  }
+  
+  .box img {
+    display: block; /* Affichage en bloc */
+    margin: 0 auto 10px; /* Marge */
+    width: 70px; /* Largeur */
+  }
+  
+  /* Formulaire */
+  
+  form {
+    width: 900px; /* Largeur */
+    margin: 100px auto 50px; /* Marge */
+    box-shadow: 0 10px 15px 5px rgba(0, 0, 0, 0.2); /* Ombre */
+    padding: 20px; /* Remplissage */
+    border-radius: 5px; /* Rayon de la bordure */
+  }
+  
+  form h2 {
+    text-align: center; /* Alignement du texte */
+    font-size: 40px; /* Taille de police */
+    margin: 10px 0 20px; /* Marge */
+  }
+  
+  .label-input {
+    display: block; /* Affichage en bloc */
+    margin: 10px 0 10px 10px; /* Marge */
+    font-size: 20px; /* Taille de police */
+  }
+  
+  .label-input:nth-child(1) {
+    margin-top: 20px; /* Marge en haut */
+  }
+  
+  input[type="text"],
+  input[type="number"] {
+    display: block; /* Affichage en bloc */
+    width: 90%; /* Largeur */
+    margin: 10px 10px 20px; /* Marge */
+    padding: 12px; /* Remplissage */
+    border-radius: 5px; /* Rayon de la bordure */
+    font-size: 18px; /* Taille de police */
+    border: 1px solid #000; /* Bordure */
+  }
+  
+  .titre-check {
+    display: inline; /* Affichage en ligne */
+    font-size: 20px; /* Taille de police */
+    padding: 0 10px; /* Remplissage */
+  }
+  
+  .groupe-check {
+    display: inline; /* Affichage en ligne */
+  }
+  
+  .labels-check {
+    font-size: 18px; /* Taille de police */
+  }
+  
+  input[type="checkbox"] {
+    display: inline; /* Affichage en ligne */
+    border: none; /* Pas de bordure */
+    margin-right: 20px; /* Marge à droite */
+    margin-left: 5px; /* Marge à gauche */
+    border-radius: 2px; /* Rayon de la bordure */
+  }
+  
+  label[for="txt"] {
+    display: block; /* Affichage en bloc */
+    text-align: left; /* Alignement du texte */
+    font-size: 22px; /* Taille de police */
+    margin: 30px 10px 20px; /* Marge */
+  }
+  
+  textarea {
+    font-family: Open sans, Arial, Helvetica, sans-serif; /* Police de caractères */
+    display: block; /* Affichage en bloc */
+    width: 90%; /* Largeur */
+    height: 200px; /* Hauteur */
+    margin: 10px 10px 20px; /* Marge */
+    resize: none; /* Interdiction de redimensionner */
+    font-size: 18px; /* Taille de police */
+    padding: 18px; /* Remplissage */
+    border: 1px solid #000; /* Bordure */
+  }
+  
+  form button {
+    display: block; /* Affichage en bloc */
+    margin: 10px auto 20px; /* Marge */
+    width: 200px; /* Largeur */
+    height: 40px; /* Hauteur */
+    font-size: 20px; /* Taille de police */
+    border: none; /* Pas de bordure */
+    border: 1px solid #000; /* Bordure */
+    border-radius: 5px; /* Rayon de la bordure */
+  }
+  
+  @media screen and (max-width: 800px) {
+    .titre-contact {
+        margin: 30px 0 20px; /* Marge */
+        font-size: 40px; /* Taille de police */
+    }
+    .contact-sous-titre {
+        margin: 0 20px 20px; /* Marge */
+        font-size: 16px; /* Taille de police */
+    }
+    .trois-contacts {
+        flex-direction: column; /* Direction de la colonne */
+        width: 90%; /* Largeur */
+        align-items: center; /* Alignement des éléments */
+        justify-content: space-between; /* Justification de l'espace entre les éléments */
+    }
+    .box {
+        margin: 20px 0; /* Marge */
+    }
+    .box img {
+        width: 50px; /* Largeur */
+    }
+    form {
+        width: 90%; /* Largeur */
+        margin: 80px auto 50px; /* Marge */
+    }
+    form h2 {
+        text-align: center; /* Alignement du texte */
+        font-size: 30px; /* Taille de police */
+        margin: 10px 0 30px; /* Marge */
+    }
+    .groupe-check {
+        display: block; /* Affichage en bloc */
+        margin: 10px 0 10px 10px; /* Marge */
+        font-size: 20px; /* Taille de police */
+    }
+    textarea {
+        width: 80%; /* Largeur */
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 80%; /* Largeur */
+    }
+  }
+  

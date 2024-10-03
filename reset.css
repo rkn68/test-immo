@@ -1,0 +1,131 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  box-sizing: border-box; /* Utilisation du modèle de boîte pour inclure le padding et la bordure dans la taille totale */
+  margin: 0; /* Réinitialisation des marges */
+  padding: 0; /* Réinitialisation des padding */
+  border: 0; /* Suppression des bordures par défaut */
+  font-size: 100%; /* Utilisation de la taille de police par défaut */
+  font: inherit; /* Héritage de la police */
+  vertical-align: baseline; /* Alignement vertical de base */
+}
+
+/* Réinitialisation du rôle d'affichage HTML5 pour les anciens navigateurs */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; /* Affichage en bloc des éléments HTML5 */
+}
+
+body {
+  line-height: 1; /* Hauteur de ligne par défaut */
+}
+
+ol,
+ul {
+  list-style: none; /* Suppression du style de liste */
+}
+
+blockquote,
+q {
+  quotes: none; /* Suppression des guillemets pour les citations */
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: ""; /* Suppression du contenu des guillemets */
+  content: none; /* Suppression du contenu des guillemets */
+}
+
+table {
+  border-collapse: collapse; /* Fusion des bordures des tableaux */
+  border-spacing: 0; /* Suppression de l'espacement entre les cellules du tableau */
+}
